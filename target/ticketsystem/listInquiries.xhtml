@@ -12,12 +12,18 @@
             <h1>#{msg['listInquiries.heading']}</h1>
 
                 <h:form>
-                        <p:dataTable value="#{inquiryProducer.selectedInquiry}" var="inquiry">
+                        <p:dataTable value="#{inquiryListProducer.inquiries}" var="inquiry">
                             <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="fam" />
+                                <f:facet name="edit">
+                                    <p:button value="Edit"></p:button>
                                 </f:facet>
+                            </p:column>
+                            <p:column headerText="Customer#{msg['listInquiries.customer']}">
+                                    <h:outputText value="#{inquiry.agent.firstName}" />
                                 <h:outputText value="famiel" />
+                            </p:column>
+                            <p:column headerText="#{msg['listInquiries.Status']}">
+                                    <h:outputText value="#{inquiry.status}" />
                             </p:column>
                         </p:dataTable>
                   </h:form>

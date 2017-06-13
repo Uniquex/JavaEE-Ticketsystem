@@ -3,15 +3,22 @@ package pw.vhome.ticketsystem.controller;
 import pw.vhome.ticketsystem.data.InquiryProducer;
 import pw.vhome.ticketsystem.model.Inquiry;
 
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
 /**
  * Created by vitz on 09.06.17.
  */
-public class ListInquriesController implements Serializable{
+@SessionScoped
+@Named
+class ListInquriesController implements Serializable{
 
-    @Inject
+    private static final long serialVersionUID = 8693577383648025822L;
+
+
+//@Inject
     private InquiryProducer inquiryProducer;
 
     public String doAddTicket(){

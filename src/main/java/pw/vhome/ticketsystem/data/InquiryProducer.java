@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
  */
 @SessionScoped
 @Named
-public class InquiryProducer {
+public class InquiryProducer implements java.io.Serializable {
     private static final long serialVersionUID = 1828660647917534556L;
 
     private enum Mode{

@@ -24,7 +24,7 @@ public class InquiryListProducer implements Serializable
         inquiries = createMockInquiries();
     }
 
-    @Produces
+    //@Produces
     public List<Inquiry> getInquiries()
     {
         return inquiries;
@@ -64,6 +64,7 @@ public class InquiryListProducer implements Serializable
 
         List<Inquiry> inquiries = new LinkedList<>();
         inquiries.add(inquiry1);
+        inquiries.add(inquiry2);
 
 
         return inquiries;

@@ -14,8 +14,6 @@ public class Inquiry {
     private User Agent;
     private User Customer;
 
-
-
     public Ticket getTicket() {
         return ticket;
     }
@@ -80,8 +78,4 @@ public class Inquiry {
     {
         Incident, ServiceRequest;
     }
-
-
-
 }
-
