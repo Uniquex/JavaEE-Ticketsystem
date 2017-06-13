@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>
+<body>
+    <f:view contracts="#{view.locale.language}">
+        <ui:composition template="/template.xhtml">
+            <ui:define name="content">
+            <h1>#{msg['listInquiries.heading']}</h1>
+
+                <h:form>
+                        <p:dataTable value="#{inquiryProducer.selectedInquiry}" var="inquiry">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="fam" />
+                                </f:facet>
+                                <h:outputText value="famiel" />
+                            </p:column>
+                        </p:dataTable>
+                  </h:form>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</body>
+</html>
