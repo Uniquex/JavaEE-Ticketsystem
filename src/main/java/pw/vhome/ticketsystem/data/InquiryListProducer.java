@@ -41,26 +41,40 @@ public class InquiryListProducer implements Serializable
         customer1.setId(2);
         customer1.setLevel(User.Level.Customer);
 
+        User customer2 = new User();
+        customer2.setFirstName("dikt");
+        customer2.setLastName("Schneier");
+        customer2.setEmail("beier@tsn.at");
+        customer2.setBirthday(new Date(852336000000l));
+        customer2.setId(3);
+        customer2.setLevel(User.Level.Customer);
+
         User administrator = new User();
-        administrator.setFirstName("Luki");
-        administrator.setLastName("Luiui");
+        administrator.setFirstName("Bruce");
+        administrator.setLastName("Wayne");
         administrator.setEmail("luki@fam.com");
         administrator.setBirthday(new Date(875750400000l));
         administrator.setId(2);
         administrator.setLevel(User.Level.Customer);
 
         Inquiry inquiry1 = new Inquiry();
+        inquiry1.setId(1);
         inquiry1.setTicket(Inquiry.Ticket.Incident);
         inquiry1.setCustomer(customer1);
+        inquiry1.setAgent(administrator);
         inquiry1.setStatus(Inquiry.Status.Open);
         inquiry1.setTimeIssued(new Date(System.currentTimeMillis()));
+        inquiry1.setPriority(Inquiry.Priority.low);
+
 
         Inquiry inquiry2 = new Inquiry();
+        inquiry2.setId(2);
         inquiry2.setTicket(Inquiry.Ticket.ServiceRequest);
-        inquiry2.setCustomer(customer1);
+        inquiry2.setCustomer(customer2);
         inquiry2.setAgent(administrator);
         inquiry2.setStatus(Inquiry.Status.Pending);
         inquiry2.setTimeIssued(new Date(System.currentTimeMillis()-100000));
+        inquiry2.setPriority(Inquiry.Priority.critical);
 
         List<Inquiry> inquiries = new LinkedList<>();
         inquiries.add(inquiry1);

@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by vitz on 09.06.17.
  */
 public class Inquiry {
+    private long id;
     private Ticket ticket;
     private Date timeIssued;
     private Date timeInProcess;
@@ -13,6 +14,7 @@ public class Inquiry {
     private Status status;
     private User Agent;
     private User Customer;
+    private Priority priority;
 
     public Ticket getTicket() {
         return ticket;
@@ -70,6 +72,23 @@ public class Inquiry {
         Customer = customer;
     }
 
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
     public enum Status
     {
         Open, Pending, Resolved, Closed;
@@ -77,5 +96,9 @@ public class Inquiry {
     public enum Ticket
     {
         Incident, ServiceRequest;
+    }
+    public enum Priority
+    {
+        critical, high, medium, low;
     }
 }

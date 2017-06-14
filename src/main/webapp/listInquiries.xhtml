@@ -13,14 +13,26 @@
 
                 <h:form>
                         <p:dataTable value="#{inquiryListProducer.inquiries}" var="inquiry">
-                            <p:column headerText="Edit">
-                                    <p:button value="Edit"></p:button>
+                            <p:column headerText="Id">
+                                <h:outputText value="#{inquiry.id}" />
                             </p:column>
-                            <p:column headerText="#{msg['listInquiries.customer']}">
-                                    <h:outputText value="#{inquiry.agent.firstName}" />
+                            <p:column headerText="">
+                                <p:button value="Edit"></p:button>
+                            </p:column>
+                            <p:column headerText="#{msg['listInquiries.User']}">
+                                    <h:outputText value="#{inquiry.customer.firstName} #{inquiry.customer.lastName}" />
                             </p:column>
                             <p:column headerText="#{msg['listInquiries.Status']}">
                                     <h:outputText value="#{inquiry.status}" />
+                            </p:column>
+                            <p:column headerText="#{msg['listInquiries.Priority']}">
+                                <h:outputText value="#{inquiry.priority}" />
+                            </p:column>
+                            <p:column headerText="#{msg['listInquiries.timeIssued']}">
+                                <h:outputText value="#{inquiry.timeIssued}" />
+                            </p:column>
+                            <p:column headerText="#{msg['listInquiries.Agent']}">
+                                <h:outputText value="#{inquiry.agent.firstName} #{inquiry.agent.lastName}" />
                             </p:column>
                         </p:dataTable>
                   </h:form>
