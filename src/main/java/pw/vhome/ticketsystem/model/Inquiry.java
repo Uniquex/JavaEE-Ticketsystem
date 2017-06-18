@@ -1,13 +1,21 @@
 package pw.vhome.ticketsystem.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
  * Created by vitz on 09.06.17.
  */
+//@Entity
 public class Inquiry {
+
+    @GeneratedValue
+    @Id
     private long id;
-    private Ticket ticket;
+
+    private Kind kind;
     private Date timeIssued;
     private Date timeInProcess;
     private Date timeFinished;
@@ -15,17 +23,18 @@ public class Inquiry {
     private User Agent;
     private User Customer;
     private Priority priority;
+    private String message;
 
-    public Ticket getTicket() {
-        return ticket;
+    public Kind getKind() {
+        return kind;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setTicket(Kind kind) {
+        this.kind = kind;
     }
 
-    public Date getTimeIssued() {
-        return timeIssued;
+    public String getTimeIssued() {
+        return timeIssued.toString();
     }
 
     public void setTimeIssued(Date timeIssued) {
@@ -88,17 +97,24 @@ public class Inquiry {
         this.id = id;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
     public enum Status
     {
-        Open, Pending, Resolved, Closed;
+        Open, Pending, Resolved, Closed
     }
-    public enum Ticket
+    public enum Kind
     {
-        Incident, ServiceRequest;
+        Incident, ServiceRequest
     }
     public enum Priority
     {
-        critical, high, medium, low;
+        critical, high, medium, low
     }
 }

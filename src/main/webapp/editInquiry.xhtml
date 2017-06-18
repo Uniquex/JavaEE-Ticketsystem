@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+<f:view contracts="#{view.locale.language}">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+           <h1> #{inquiryProducer.addMode ? msg['editInquiry.addTitle'] : msg['editInquiry.editTitle']} </h1>
+
+
+            <h:form>
+                <h:panelGrid columns="3" >
+                    <p:outputLabel value="#{msg['editInquiry.kind']}" />
+                    <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.kind}">
+                        <f:selectItem itemLabel="Service Inquiry" itemValue="ServiceInquiry" />
+                        <f:selectItem itemLabel="Incident" itemValue="Incident" />
+                    </p:selectOneMenu>
+                    <!--<p:message>xx</p:message>-->
+
+                    <f:facet name="header">#{msg['editInquiry.general']}</f:facet>
+                    <p:outputLabel value="#{msg['listInquiries.customer']}" />
+                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.customer.firstName} #{inquiryProducer.selectedInquiry.customer.lastName}" />
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['listInquiries.Agent']}" />
+                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.agent.firstName} #{inquiryProducer.selectedInquiry.agent.lastName}" />
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['listInquiries.Priority']}" />
+                    <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.priority}">
+                        <f:selectItem itemLabel="low" itemValue="#{msg['editInquiry.low']}" />
+                        <f:selectItem itemLabel="medium" itemValue="#{msg['editInquiry.medium']}" />
+                        <f:selectItem itemLabel="low" itemValue="#{msg['editInquiry.high']}" />
+                        <f:selectItem itemLabel="critical" itemValue="#{msg['editInquiry.critical']}" />
+                    </p:selectOneMenu>
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['listInquiries.Status']}" />
+                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.status}" />
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['editInquiry.message']}" />
+                    <p:inputTextarea value="#{inquiryProducer.selectedInquiry.message}" />
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['listInquiries.timeIssued']}" />
+                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.timeIssued}"/>
+                    <!--<p:message>xx</p:message>-->
+
+
+                </h:panelGrid>
+            </h:form>
+
+            <p:commandButton value="#{msg['editInquiry.cancel']}" action="#{editInquiryController.doCancel}" styleClass="arrow-button"/>
+            <p:commandButton value="#{msg['editInquiry.save']}" action="#{editInquiryController.doSave}" styleClass="button"/>
+
+
+        </ui:define>
+    </ui:composition>
+</f:view>
+</body>
+</html>

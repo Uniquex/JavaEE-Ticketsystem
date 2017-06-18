@@ -1,13 +1,21 @@
 package pw.vhome.ticketsystem.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by vitz on 09.06.17.
  */
+//@Entity
 public class User implements Serializable{
-    private int id;
+
+    @GeneratedValue
+    @Id
+    private long id;
+
     private Level level;
     private String firstname;
     private String lastname;
@@ -22,11 +30,11 @@ public class User implements Serializable{
         this.email = email;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

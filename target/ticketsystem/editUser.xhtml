@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<body>
+<f:view contracts="#{view.locale.language}">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="content">
+            <h1> #{userProducer.addMode ? msg['editUser.addTitle'] : msg['editUser.editTitle']} </h1>
+
+
+            <h:form>
+                <h:panelGrid columns="3" >
+
+                    <p:outputLabel value="ID" />
+                    <p:outputLabel value="#{userProducer.selectedUser.id}"/>
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['editUser.firstname']}" />
+                    <p:inputText value="#{userProducer.selectedUser.firstName}"/>
+                    <!--<p:message>xx</p:message>-->
+                    <p:outputLabel value="#{msg['editUser.surname']}" />
+                    <p:inputText value="#{userProducer.selectedUser.lastName}"/>
+                    <!--<p:message>xx</p:message>-->
+                    <p:outputLabel value="#{msg['editUser.Birthday']}" />
+                    <p:outputLabel value="#{userProducer.selectedUser.birthday}"/>
+                    <!--<p:message>xx</p:message>-->
+                    <p:outputLabel value="#{msg['editUser.Email']}" />
+                    <p:inputText value="#{userProducer.selectedUser.email}"/>
+                    <!--<p:message>xx</p:message>-->
+
+                    <p:outputLabel value="#{msg['editUser.level']}" />
+                    <p:inputText value="#{userProducer.selectedUser.level}"/>
+                    <!--<p:message>xx</p:message>-->
+
+
+                </h:panelGrid>
+            </h:form>
+
+            <p:commandButton value="#{msg['editInquiry.cancel']}" action="#{editUserController.doCancel}" styleClass="arrow-button"/>
+            <p:commandButton value="#{msg['editInquiry.save']}" action="#{editUserController.doSave}" styleClass="button"/>
+
+
+        </ui:define>
+    </ui:composition>
+</f:view>
+</body>
+</html>
