@@ -19,19 +19,19 @@ class ListInquriesController implements Serializable{
 
 
 //@Inject
-    private InquiryProducer inquiryProducer;
+  //  private InquiryProducer inquiryProducer;
 
     public String doAddTicket(){
-        inquiryProducer.prepareAddInquiry();
-        return Pages.Edit_Ticket;
+ //       inquiryProducer.prepareAddInquiry();
+        return Pages.EDIT_INQUIRY;
     }
 
-    public String doEditCampaign(Inquiry inquiry) {
-        inquiryProducer.prepareEditInquiry(inquiry);
-        return Pages.Edit_Ticket;
+    public String doEditInquiries(Inquiry inquiry) {
+  //      inquiryProducer.prepareEditInquiry(inquiry);
+        return Pages.EDIT_INQUIRY;
     }
 
     public String doListUsers() {
-        return  Pages.List_Users;
+        return  Pages.LIST_USERS;
     }
 }
