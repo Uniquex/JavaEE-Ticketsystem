@@ -17,8 +17,8 @@
                 <h:panelGrid columns="3" >
                     <p:outputLabel value="#{msg['editInquiry.kind']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.kind}">
-                        <f:selectItem itemLabel="Service Inquiry" itemValue="ServiceInquiry" />
-                        <f:selectItem itemLabel="Incident" itemValue="Incident" />
+                        <f:selectItem itemLabel="#{msg['editinquiry.inquiry']}" itemValue="ServiceRequest" />
+                        <f:selectItem itemLabel="#{msg['editInquiry.incident']}" itemValue="Incident" />
                     </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
@@ -33,10 +33,10 @@
 
                     <p:outputLabel value="#{msg['listInquiries.Priority']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.priority}">
-                        <f:selectItem itemLabel="low" itemValue="#{msg['editInquiry.low']}" />
-                        <f:selectItem itemLabel="medium" itemValue="#{msg['editInquiry.medium']}" />
-                        <f:selectItem itemLabel="low" itemValue="#{msg['editInquiry.high']}" />
-                        <f:selectItem itemLabel="critical" itemValue="#{msg['editInquiry.critical']}" />
+                        <f:selectItem itemLabel="#{msg['editInquiry.low']}" itemValue="low" />
+                        <f:selectItem itemLabel="#{msg['editInquiry.medium']}" itemValue="medium" />
+                        <f:selectItem itemLabel="#{msg['editInquiry.high']}" itemValue="low" />
+                        <f:selectItem itemLabel="#{msg['editInquiry.critical']}" itemValue="critical" />
                     </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
@@ -56,7 +56,7 @@
                 </h:panelGrid>
             </h:form>
 
-            <p:commandButton value="#{msg['editInquiry.cancel']}" action="#{editInquiryController.doCancel}" styleClass="arrow-button"/>
+            <p:commandButton value="#{msg['editInquiry.cancel']}" action="#{editInquiryController.doCancel}" styleClass="button"/>
             <p:commandButton value="#{msg['editInquiry.save']}" action="#{editInquiryController.doSave}" styleClass="button"/>
 
 

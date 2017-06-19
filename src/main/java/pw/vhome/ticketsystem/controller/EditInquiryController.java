@@ -7,6 +7,8 @@ import pw.vhome.ticketsystem.model.User;
 import pw.vhome.ticketsystem.util.Events;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Event;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -22,17 +24,14 @@ public class EditInquiryController implements Serializable {
     private static final long serialVersionUID = 2815989L;
 
     @Inject @Events.Added
-    private Event<Inquiry> campaignAddEvent;
-
-    @Inject
-    private InquiryListProducer inquiryListProducer;
+    private Event<Inquiry> inquiryAddEvent;
 
     @Inject
     private InquiryProducer inquiryProducer;
 
     public String doSave(){
-        if(inquiryProducer.isAddMode()) {
-            inquiryListProducer.getInquiries().add(inquiryProducer.getSelectedInquiry());
+        if(inquiryProducer.isAddMode()){
+            inquiryAddEvent.fire(inquiryProducer.getSelectedInquiry());
         }
         return Pages.LIST_INQUIRIES;
     }

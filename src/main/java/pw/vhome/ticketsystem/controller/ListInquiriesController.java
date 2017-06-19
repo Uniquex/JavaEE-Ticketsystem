@@ -4,8 +4,10 @@ import pw.vhome.ticketsystem.data.InquiryProducer;
 import pw.vhome.ticketsystem.data.UserProducer;
 import pw.vhome.ticketsystem.model.Inquiry;
 import pw.vhome.ticketsystem.model.User;
+import pw.vhome.ticketsystem.util.Events;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -25,7 +27,7 @@ public class ListInquiriesController implements Serializable{
     @Inject
     private UserProducer userProducer;
 
-    public String doAddTicket(){
+    public String doAddInquiry(){
         inquiryProducer.prepareAddInquiry();
         return Pages.EDIT_INQUIRY;
     }

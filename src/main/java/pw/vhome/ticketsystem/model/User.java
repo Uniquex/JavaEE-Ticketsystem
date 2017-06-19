@@ -9,13 +9,12 @@ import java.util.Date;
 /**
  * Created by vitz on 09.06.17.
  */
-//@Entity
+@Entity
 public class User implements Serializable{
 
     @GeneratedValue
     @Id
     private long id;
-
     private Level level;
     private String firstname;
     private String lastname;

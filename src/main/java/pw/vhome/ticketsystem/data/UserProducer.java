@@ -27,6 +27,12 @@ public class UserProducer implements java.io.Serializable {
         this.user = user;
     }
 
+    @Produces
+    @Named
+    public boolean isAddMode() {
+        return mode == Mode.ADD;
+    }
+
     public void prepareAddUser(){
         this.user = new User();
         this.mode = Mode.ADD;
@@ -43,10 +49,6 @@ public class UserProducer implements java.io.Serializable {
         return user;
     }
 
-    @Produces
-    @Named
-    public boolean isAddMode() {
-        return mode == Mode.ADD;
-    }
+
 
 }

@@ -12,7 +12,7 @@
             <h1>#{msg['listInquiries.heading']}</h1>
 
                 <h:form>
-                        <p:dataTable value="#{inquiryListProducer.inquiries}" var="inquiry">
+                        <p:dataTable value="#{inquiries}" var="inquiry">
                             <p:column headerText="Id">
                                 <h:outputText value="#{inquiry.id}" />
                             </p:column>
@@ -35,7 +35,7 @@
                                 <p:commandLink value="#{inquiry.agent.firstName} #{inquiry.agent.lastName}" action="#{listInquiriesController.doEditUser(inquiry.agent)}" />
                             </p:column>
                         </p:dataTable>
-                    <h:commandButton value="#{'test'}" action="#{listInquiriesController.doAddTicket}" />
+                    <p:commandButton value="#{msg['listInquiries.addTicket']}" action="#{listInquiriesController.doAddInquiry}" />
                   </h:form>
 
             </ui:define>

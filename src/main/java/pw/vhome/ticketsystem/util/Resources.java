@@ -2,6 +2,7 @@ package pw.vhome.ticketsystem.util;
 
 
 import javax.enterprise.context.Dependent;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
@@ -15,9 +16,9 @@ import java.util.logging.Logger;
 @Dependent
 public class Resources {
 
-    @Produces
-    @PersistenceContext
-    private EntityManager em;
+//    @Produces
+//    @PersistenceContext
+//    private EntityManager em;
 
 
     @Produces
@@ -26,6 +27,7 @@ public class Resources {
     }
 
     @Produces
+    @RequestScoped
     public FacesContext produceFacesContext() {
         return FacesContext.getCurrentInstance();
     }

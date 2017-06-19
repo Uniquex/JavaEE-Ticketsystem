@@ -1,8 +1,6 @@
 package pw.vhome.ticketsystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -11,8 +9,8 @@ import java.util.Date;
 //@Entity
 public class Inquiry {
 
-    @GeneratedValue
-    @Id
+    //@GeneratedValue
+    //@Id
     private long id;
 
     private Kind kind;
@@ -20,8 +18,12 @@ public class Inquiry {
     private Date timeInProcess;
     private Date timeFinished;
     private Status status;
+
+    //@OneToOne
     private User Agent;
+    //@OneToOne
     private User Customer;
+
     private Priority priority;
     private String message;
 

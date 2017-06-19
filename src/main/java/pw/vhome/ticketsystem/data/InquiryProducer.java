@@ -38,8 +38,8 @@ public class InquiryProducer implements java.io.Serializable {
         this.mode = Mode.EDIT;
     }
 
-    //@Produces
-    //@Named
+    @Produces
+    @Named
     public Inquiry getSelectedInquiry(){
         return inquiry;
     }
