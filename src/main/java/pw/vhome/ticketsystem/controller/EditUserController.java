@@ -28,7 +28,7 @@ public class EditUserController implements Serializable {
 
     public String doSave(){
         if(userProducer.isAddMode()) {
-            inquiryListProducer.onInquiryAdded() .get(0).setAgent(userProducer.getSelectedUser());
+            inquiryListProducer.getInquiries().get(0).setAgent(userProducer.getSelectedUser());
         }
         return Pages.LIST_INQUIRIES;
     }

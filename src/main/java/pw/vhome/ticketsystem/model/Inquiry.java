@@ -6,11 +6,11 @@ import java.util.Date;
 /**
  * Created by vitz on 09.06.17.
  */
-//@Entity
+@Entity
 public class Inquiry {
 
-    //@GeneratedValue
-    //@Id
+    @GeneratedValue
+    @Id
     private long id;
 
     private Kind kind;
@@ -19,9 +19,10 @@ public class Inquiry {
     private Date timeFinished;
     private Status status;
 
-    //@OneToOne
+    @OneToOne
     private User Agent;
-    //@OneToOne
+
+    @OneToOne
     private User Customer;
 
     private Priority priority;

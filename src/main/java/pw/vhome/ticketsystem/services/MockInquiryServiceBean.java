@@ -40,7 +40,15 @@ public class MockInquiryServiceBean implements InquiryService {
         administrator.setEmail("luki@fam.com");
         administrator.setBirthday(new Date(875750400000l));
         administrator.setId(2);
-        administrator.setLevel(User.Level.Customer);
+        administrator.setLevel(User.Level.Administrator);
+
+        User moderator = new User();
+        moderator.setFirstName("Earl");
+        moderator.setLastName("Lemongrab");
+        moderator.setEmail("lemon@grab.com");
+        moderator.setBirthday(new Date(875250400000l));
+        moderator.setId(2);
+        moderator.setLevel(User.Level.Agent);
 
         Inquiry inquiry1 = new Inquiry();
         inquiry1.setId(1);
@@ -57,7 +65,7 @@ public class MockInquiryServiceBean implements InquiryService {
         inquiry2.setId(2);
         inquiry2.setTicket(Inquiry.Kind.ServiceRequest);
         inquiry2.setCustomer(customer2);
-        inquiry2.setAgent(administrator);
+        inquiry2.setAgent(moderator);
         inquiry2.setStatus(Inquiry.Status.Pending);
         inquiry2.setTimeIssued(new Date(System.currentTimeMillis()-100000));
         inquiry2.setPriority(Inquiry.Priority.critical);

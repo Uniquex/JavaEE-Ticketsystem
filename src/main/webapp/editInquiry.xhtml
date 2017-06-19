@@ -17,8 +17,7 @@
                 <h:panelGrid columns="3" >
                     <p:outputLabel value="#{msg['editInquiry.kind']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.kind}">
-                        <f:selectItem itemLabel="#{msg['editinquiry.inquiry']}" itemValue="ServiceRequest" />
-                        <f:selectItem itemLabel="#{msg['editInquiry.incident']}" itemValue="Incident" />
+                        <f:selectItems value="#{editInquiryController.kindValues}" />
                     </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
@@ -33,10 +32,7 @@
 
                     <p:outputLabel value="#{msg['listInquiries.Priority']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.priority}">
-                        <f:selectItem itemLabel="#{msg['editInquiry.low']}" itemValue="low" />
-                        <f:selectItem itemLabel="#{msg['editInquiry.medium']}" itemValue="medium" />
-                        <f:selectItem itemLabel="#{msg['editInquiry.high']}" itemValue="low" />
-                        <f:selectItem itemLabel="#{msg['editInquiry.critical']}" itemValue="critical" />
+                        <f:selectItems value="#{editInquiryController.kindPriorities}" />
                     </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
