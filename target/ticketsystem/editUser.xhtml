@@ -21,8 +21,9 @@
                     <!--<p:message>xx</p:message>-->
 
                     <p:outputLabel value="#{msg['editUser.firstname']}" />
-                    <p:inputText value="#{userProducer.selectedUser.firstName}"/>
-                    <!--<p:message>xx</p:message>-->
+                    <p:inputText id="u_firstname" value="#{userProducer.selectedUser.firstName}" validatorMessage="#{msg['editUser.Message_Name']}" maxlength="10"/>
+                    <p:message for="u_firstname" style="color: red;"></p:message>
+
                     <p:outputLabel value="#{msg['editUser.surname']}" />
                     <p:inputText value="#{userProducer.selectedUser.lastName}"/>
                     <!--<p:message>xx</p:message>-->
