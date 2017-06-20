@@ -32,6 +32,11 @@ public class ListInquiriesController implements Serializable{
         return Pages.EDIT_INQUIRY;
     }
 
+    public String doAddUser(){
+        userProducer.prepareAddUser();
+        return Pages.EDIT_USER;
+    }
+
     public String doEditInquiry(Inquiry inquiry) {
         inquiryProducer.prepareEditInquiry(inquiry);
         return Pages.EDIT_INQUIRY;
@@ -40,5 +45,9 @@ public class ListInquiriesController implements Serializable{
     public String doEditUser(User user){
         userProducer.prepareEditUser(user);
         return Pages.EDIT_USER;
+    }
+
+    public String doListUsers(){
+        return Pages.LIST_USERS;
     }
 }

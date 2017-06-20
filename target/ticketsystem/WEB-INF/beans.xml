@@ -6,7 +6,4 @@
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
         bean-discovery-mode="annotated">
 
-    <alternatives>
-        <class>pw.vhome.ticketsystem.services.MockInquiryServiceBean</class>
-    </alternatives>
 </beans>

@@ -1,13 +1,22 @@
 package pw.vhome.ticketsystem.model;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Date;
 
 /**
  * Created by vitz on 09.06.17.
  */
+
+@NamedQueries({
+        @NamedQuery(name = "Inquiry.findAll", query = "SELECT c FROM Inquiry c ORDER BY c.id")
+})
+
+
 @Entity
 public class Inquiry {
+
+    public static final String findAll = "Inquiry.findAll";
 
     @GeneratedValue
     @Id
@@ -19,10 +28,8 @@ public class Inquiry {
     private Date timeFinished;
     private Status status;
 
-    @OneToOne
     private User Agent;
 
-    @OneToOne
     private User Customer;
 
     private Priority priority;
@@ -108,6 +115,10 @@ public class Inquiry {
         this.message = message;
     }
 
+    public void setKind(Kind kind) {
+        this.kind = kind;
+    }
+
     public enum Status
     {
         Open, Pending, Resolved, Closed
@@ -119,5 +130,9 @@ public class Inquiry {
     public enum Priority
     {
         critical, high, medium, low
+    }
+
+    public Inquiry (){
+        setTimeIssued(new Date(System.currentTimeMillis()));
     }
 }

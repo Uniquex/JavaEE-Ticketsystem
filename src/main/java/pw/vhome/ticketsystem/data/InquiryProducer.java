@@ -28,6 +28,12 @@ public class InquiryProducer implements java.io.Serializable {
         this.inquiry = inquiry;
     }
 
+    @Produces
+    @Named
+    public boolean isAddMode() {
+        return mode == Mode.ADD;
+    }
+
     public void prepareAddInquiry(){
         this.inquiry = new Inquiry();
         this.mode = Mode.ADD;
@@ -43,11 +49,4 @@ public class InquiryProducer implements java.io.Serializable {
     public Inquiry getSelectedInquiry(){
         return inquiry;
     }
-
-    @Produces
-    @Named
-    public boolean isAddMode() {
-        return mode == Mode.ADD;
-    }
-
 }

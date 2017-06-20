@@ -16,9 +16,9 @@ import java.util.logging.Logger;
 @Dependent
 public class Resources {
 
-//    @Produces
-//    @PersistenceContext
-//    private EntityManager em;
+    @Produces
+    @PersistenceContext
+    private EntityManager em;
 
 
     @Produces

@@ -1,18 +1,23 @@
 package pw.vhome.ticketsystem.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by vitz on 09.06.17.
  */
+
+@NamedQueries({
+        @NamedQuery(name = "User.findAll", query = "SELECT c FROM User c ORDER BY c.id")
+})
+
 @Entity
 public class User implements Serializable{
 
-    @GeneratedValue
+    public static final String findAll = "User.findAll";
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private long id;
     private Level level;
@@ -70,6 +75,6 @@ public class User implements Serializable{
     }
 
     public enum Level{
-        Administrator, Agent, Customer;
+        Administrator, Agent, Customer
     }
 }

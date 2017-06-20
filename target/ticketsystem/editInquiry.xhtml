@@ -15,6 +15,7 @@
 
             <h:form>
                 <h:panelGrid columns="3" >
+
                     <p:outputLabel value="#{msg['editInquiry.kind']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.kind}">
                         <f:selectItems value="#{editInquiryController.kindValues}" />
@@ -22,17 +23,22 @@
                     <!--<p:message>xx</p:message>-->
 
                     <f:facet name="header">#{msg['editInquiry.general']}</f:facet>
+
                     <p:outputLabel value="#{msg['listInquiries.customer']}" />
-                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.customer.firstName} #{inquiryProducer.selectedInquiry.customer.lastName}" />
+                    <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.customer}">
+                        <f:selectItems value="#{editInquiryController.users}" />
+                    </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
                     <p:outputLabel value="#{msg['listInquiries.Agent']}" />
-                    <p:outputLabel value="#{inquiryProducer.selectedInquiry.agent.firstName} #{inquiryProducer.selectedInquiry.agent.lastName}" />
+                    <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.agent}">
+                        <f:selectItems value="#{editInquiryController.users}" />
+                    </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 
                     <p:outputLabel value="#{msg['listInquiries.Priority']}" />
                     <p:selectOneMenu value="#{inquiryProducer.selectedInquiry.priority}">
-                        <f:selectItems value="#{editInquiryController.kindPriorities}" />
+                        <f:selectItems value="#{editInquiryController.priorities}" />
                     </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
 

@@ -5,6 +5,7 @@ import pw.vhome.ticketsystem.services.InquiryService;
 import pw.vhome.ticketsystem.util.Events;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.inject.Produces;
@@ -14,10 +15,9 @@ import java.io.Serializable;
 import java.util.List;
 
 
-@SessionScoped
-public class InquiryListProducer implements Serializable
+@RequestScoped
+public class InquiryListProducer
 {
-    private static final long serialVersionUID = -182866064791747156L;
     private List<Inquiry> inquiries;
 
 
@@ -37,15 +37,17 @@ public class InquiryListProducer implements Serializable
 
 
     public void onInquiryAdded(@Observes @Events.Added Inquiry inquiry) {
-        getInquiries().add(inquiry);
+        inquiryService.addInquiry(inquiry);
+        init();
     }
 
     public void onInquiryDeleted(@Observes @Events.Deleted Inquiry inquiry) {
-        getInquiries().remove(inquiry);
+        inquiryService.deleteInquiry(inquiry);
+        init();
     }
 
-//    public void onAktionUpdated(@Observes @Updated Inquiry inquiry) {
-//        inquiryService.updateInquiry(inquiry);
-//        init();
-//    }
+    public void onActionUpdated(@Observes @Events.Updated Inquiry inquiry) {
+        inquiryService.updateInquiry(inquiry);
+        init();
+    }
 }

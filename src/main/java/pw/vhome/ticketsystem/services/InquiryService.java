@@ -10,4 +10,8 @@ import java.util.List;
  */
 public interface InquiryService {
     List<Inquiry> getAllInquiries();
+
+    void addInquiry(Inquiry inquiry);
+    void deleteInquiry(Inquiry inquiry);
+    void updateInquiry(Inquiry inquiry);
 }

@@ -27,16 +27,17 @@
                     <p:inputText value="#{userProducer.selectedUser.lastName}"/>
                     <!--<p:message>xx</p:message>-->
                     <p:outputLabel value="#{msg['editUser.Birthday']}" />
-                    <p:outputLabel value="#{userProducer.selectedUser.birthday}"/>
+                    <p:calendar value="#{userProducer.selectedUser.birthday}"/>
                     <!--<p:message>xx</p:message>-->
                     <p:outputLabel value="#{msg['editUser.Email']}" />
                     <p:inputText value="#{userProducer.selectedUser.email}"/>
                     <!--<p:message>xx</p:message>-->
 
                     <p:outputLabel value="#{msg['editUser.level']}" />
-                    <p:inputText value="#{userProducer.selectedUser.level}"/>
+                    <p:selectOneMenu value="#{userProducer.selectedUser.level}">
+                        <f:selectItems value="#{editUserController.levels}" />
+                    </p:selectOneMenu>
                     <!--<p:message>xx</p:message>-->
-
 
                 </h:panelGrid>
             </h:form>
