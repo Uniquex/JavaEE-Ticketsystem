@@ -67,11 +67,8 @@ public class EditInquiryController implements Serializable {
     }
 
     public SelectItem[] getUsers() {
-
         List<User> users = userListProducer.getUsers();
-
         SelectItem[] items = new SelectItem[users.size()];
-
         int i = 0;
         for(User u: users) {
             items[i++] = new SelectItem(u, u.getFirstName() + " " + u.getLastName() );
